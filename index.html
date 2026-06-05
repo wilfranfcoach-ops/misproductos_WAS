@@ -3,25 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soluciones Nospi y ViO</title>
+    <title>Soluciones Digitales | Nospi & ViO</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 20px; }
-        .container { max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        .btn { display: block; background: #007bff; color: white; padding: 15px; margin: 15px 0; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: #0056b3; }
-        .whatsapp-btn { background: #25d366; margin-top: 30px; }
+        :root {
+            --nospi-color: #2563eb;
+            --vio-color: #7c3aed;
+            --whatsapp-color: #22c55e;
+        }
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+            display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;
+        }
+        .container { 
+            background: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 25px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 90%; max-width: 400px; text-align: center;
+        }
+        h1 { color: #1e293b; margin-bottom: 10px; }
+        p { color: #64748b; margin-bottom: 30px; }
+        
+        .btn { 
+            display: block; color: white; padding: 18px; margin: 15px 0; text-decoration: none; 
+            border-radius: 12px; font-weight: 700; transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
+        
+        .btn-nospi { background: var(--nospi-color); }
+        .btn-vio { background: var(--vio-color); }
+        .btn-whatsapp { background: var(--whatsapp-color); }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Elige tu solución</h1>
-        <p>Selecciona el producto para ver nuestra propuesta en video:</p>
+        <h1>Potencia tu negocio</h1>
+        <p>Selecciona tu solución para conocerla a detalle:</p>
         
-        <a href="URL_DE_TU_VIDEO_NOSPI" class="btn">Ver Solución Nospi</a>
-        <a href="URL_DE_TU_VIDEO_VIO" class="btn">Ver Solución ViO</a>
+        <a href="URL_VIDEO_NOSPI" class="btn btn-nospi">🚀 Ver Solución Nospi</a>
+        <a href="URL_VIDEO_VIO" class="btn btn-vio">⚙️ Ver Solución ViO</a>
         
-        <a href="https://wa.me/TU_NUMERO" class="btn whatsapp-btn">Hablar con un asesor</a>
+        <hr style="margin: 30px 0; opacity: 0.2;">
+        
+        <a href="https://wa.me/TU_NUMERO" class="btn btn-whatsapp">💬 Hablar con un asesor</a>
     </div>
 </body>
 </html>
