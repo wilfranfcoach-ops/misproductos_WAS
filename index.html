@@ -42,7 +42,16 @@
       <button onclick="document.getElementById('videoModal').style.display='block'" class="btn btn-vio">>🚀 Ver Solución Nospi</button>
 
             <!-- Ventana flotante (El Modal) -->
-        <a href="https://youtube.com/shorts/UQY_78bG9ow?feature=share?rel=0&modestbranding=1&cc_load_policy=0&iv_load_policy=3&disablekb=1" class="btn btn-vio" target="_blank">🚀 Ver Solución Nospi</a>
+      <!-- Botón que abre el video en una ventana flotante -->
+<button onclick="document.getElementById('videoModal').style.display='block'" class="btn btn-vio">🚀 Ver Solución Nospi</button>
+
+<!-- Ventana flotante (El Modal) -->
+<div id="videoModal" style="display:none; position:fixed; z-index:999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8);">
+  <span onclick="document.getElementById('videoModal').style.display='none'" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+  <div style="display:flex; justify-content:center; align-items:center; height:100%;">
+    <iframe width="360" height="640" src="https://youtube.com/shorts/UQY_78bG9ow?feature=share?rel=0&modestbranding=1&cc_load_policy=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
 
         
 
