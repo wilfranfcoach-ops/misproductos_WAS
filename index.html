@@ -73,14 +73,14 @@
 
    
      <!-- El Botón NOSPI-->
-<button onclick="openModal()" class="btn-moderno btn-nospi">
+<button onclick="openModal('videoModal')" class="btn-moderno btn-nospi">
     🚀 Ver Solución Nospi
 </button>
 
         
         <!-- El Contenedor del video (Modal) -->
 <div id="videoModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.95); backdrop-filter: blur(5px);">
-  <span onclick="closeModal()" style="position:absolute; top:20px; right:40px; color:white; font-size:50px; cursor:pointer; z-index:10000;">&times;</span>
+  <span onclick="closeModal('videoModal')" style="position:absolute; top:20px; right:40px; color:white; font-size:50px; cursor:pointer; z-index:10000;">&times;</span>
   <div style="display:flex; justify-content:center; align-items:center; height:100%;">
     <div style="max-width: 90%; max-height: 90%;">
       <iframe id="videoPlayer" width="320" height="560" 
@@ -93,13 +93,13 @@
 
 
         <!-- El Botón VIO-->
-<button onclick="openModal()" class="btn-moderno btn-vio">⚙️ Ver Solución ViO</button>
+<button onclick="openModal('videoModal2')" class="btn-moderno btn-vio">⚙️ Ver Solución ViO</button>
 
 
         
         <!-- El Contenedor del video (Modal2) -->
 <div id="videoModal2" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.95); backdrop-filter: blur(5px);">
-  <span onclick="closeModal()" style="position:absolute; top:20px; right:40px; color:white; font-size:50px; cursor:pointer; z-index:10000;">&times;</span>
+  <span onclick="closeModal('videoModal2')" style="position:absolute; top:20px; right:40px; color:white; font-size:50px; cursor:pointer; z-index:10000;">&times;</span>
   <div style="display:flex; justify-content:center; align-items:center; height:100%;">
     <iframe id="videoPlayer2" width="320" height="560" 
         src="https://www.youtube.com/embed/2NWV09sbZis?enablejsapi=1&autoplay=1&mute=0&rel=0&modestbranding=1"
@@ -125,30 +125,28 @@
 
 <script>
 function openModal(id) {
-      document.getElementById(id).style.display = 'block';
-  }
+    var modal = document.getElementById(id);
+    if (modal) {
+        modal.style.display = 'block';
+    }
+}
     
 function closeModal(id) {
-    // 1. Ocultamos el modal
-    document.getElementById(id).style.display = 'none';
-    
-    // 2. Buscamos el iframe que está dentro de ese modal
     var modal = document.getElementById(id);
-    var iframe = modal.querySelector('iframe');
-    
-    // 3. Guardamos la URL original (para poder abrirlo de nuevo después)
-    var urlOriginal = iframe.src;
-    
-    // 4. BORRAMOS el src. Esto mata el audio y el proceso del video
-    iframe.src = "";
-    
-    // 5. Devolvemos la URL al iframe (para que esté listo para la próxima vez)
-    // Usamos un pequeño timeout para asegurar que el navegador registre el borrado
-    setTimeout(function() {
-        iframe.src = urlOriginal;
-    }, 100);
+    if (modal) {
+        modal.style.display = 'none';
+        
+        // Buscamos el iframe dentro de ESE modal específico
+        var iframe = modal.querySelector('iframe');
+        if (iframe) {
+            var urlOriginal = iframe.src;
+            iframe.src = ""; // Cortar audio
+            setTimeout(function() {
+                iframe.src = urlOriginal; // Restaurar
+            }, 100);
+        }
+    }
 }
 </script>
-
 </body>
 </html>
