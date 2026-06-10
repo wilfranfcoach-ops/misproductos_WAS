@@ -84,7 +84,7 @@
   <div style="display:flex; justify-content:center; align-items:center; height:100%;">
     <div style="max-width: 90%; max-height: 90%;">
       <iframe id="videoPlayer" width="320" height="560" 
-        src="https://www.youtube.com/embed/UQY_78bG9ow?enablejsapi=1&autoplay=1&mute=0&rel=0&modestbranding=1"
+        data-src="https://www.youtube.com/embed/UQY_78bG9ow?enablejsapi=1&autoplay=1&mute=0&rel=0&modestbranding=1"
         frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
       </iframe>
     </div>
@@ -102,7 +102,7 @@
   <span onclick="closeModal('videoModal2')" style="position:absolute; top:20px; right:40px; color:white; font-size:50px; cursor:pointer; z-index:10000;">&times;</span>
   <div style="display:flex; justify-content:center; align-items:center; height:100%;">
     <iframe id="videoPlayer2" width="320" height="560" 
-        src="https://www.youtube.com/embed/2NWV09sbZis?enablejsapi=1&autoplay=1&mute=0&rel=0&modestbranding=1"
+        data-src="https://www.youtube.com/embed/2NWV09sbZis?enablejsapi=1&autoplay=1&mute=0&rel=0&modestbranding=1"
         frameborder="0" 
         allow="autoplay; encrypted-media" 
         allowfullscreen>
@@ -116,7 +116,6 @@
     <!--<a href="https://youtube.com/shorts/wPPKooBX_y4?feature=share" class="btn btn-vio">⚙️ Ver Solución ViO</a>-->
 
 
-
         
         <hr style="margin: 30px 0; opacity: 0.2;">
         
@@ -124,29 +123,29 @@
     </div>
 
 <script>
+
 function openModal(id) {
     var modal = document.getElementById(id);
-    if (modal) {
-        modal.style.display = 'block';
-    }
-}
+    var iframe = modal.querySelector('iframe');
     
+    // Al abrir, forzamos que cargue la URL
+    // (Asegúrate de que el atributo data-src tenga tu URL de YouTube)
+    var realSrc = iframe.getAttribute('data-src');
+    iframe.src = realSrc;
+    
+    modal.style.display = 'block';
+}
+
 function closeModal(id) {
     var modal = document.getElementById(id);
-    if (modal) {
-        modal.style.display = 'none';
-        
-        // Buscamos el iframe dentro de ESE modal específico
-        var iframe = modal.querySelector('iframe');
-        if (iframe) {
-            var urlOriginal = iframe.src;
-            iframe.src = ""; // Cortar audio
-            setTimeout(function() {
-                iframe.src = urlOriginal; // Restaurar
-            }, 100);
-        }
-    }
+    modal.style.display = 'none';
+    
+    // Al cerrar, borramos el src y lo guardamos en data-src
+    var iframe = modal.querySelector('iframe');
+    iframe.setAttribute('data-src', iframe.src);
+    iframe.src = ""; // Esto mata el proceso del video para siempre
 }
 </script>
+
 </body>
 </html>
