@@ -33,19 +33,37 @@
         .btn-vio { background: var(--vio-color); }
         .btn-whatsapp { background: var(--whatsapp-color); }
 
-        .btn-moderno {
-            display: flex;         /* Mantiene el contenido centrado */
-            width: 100%;           /* ESTO ES LO QUE HACE QUE TODOS TENGAN EL MISMO ANCHO */
-            padding: 15px 30px;
-            font-size: 16px;
-            font-weight: 600;
-            border: none;
-            border-radius: 50px; 
-            cursor: pointer;
-            text-decoration: none;
-            box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
-            margin-bottom: 15px;
-        }
+       .btn-moderno {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                padding: 16px 20px;
+                font-size: 16px;
+                font-weight: 600;
+                color: #ffffff !important; /* Fuerza el color blanco */
+                border: none;
+                border-radius: 50px; 
+                cursor: pointer;
+                text-decoration: none;
+                margin: 0 auto 15px auto;
+                width: 90%;
+                max-width: 350px;
+                /* Efecto 3D: Sombra suave abajo y luz sutil arriba */
+                box-shadow: 0 6px 0px rgba(0,0,0,0.2), 0 4px 10px rgba(0,0,0,0.3);
+                transition: all 0.2s ease;
+            }
+
+.btn-moderno:active {
+    /* Al hacer clic, el botón baja un poco para simular el 3D */
+    transform: translateY(4px);
+    box-shadow: 0 2px 0px rgba(0,0,0,0.2);
+}
+
+/* Degradados profesionales */
+.btn-nospi { background: linear-gradient(180deg, #4f8af5, #2563eb); }
+.btn-vio { background: linear-gradient(180deg, #a855f7, #7e22ce); }
+.btn-asesor { background: linear-gradient(180deg, #22c55e, #16a34a); }
     </style>
 </head>
 <body>
